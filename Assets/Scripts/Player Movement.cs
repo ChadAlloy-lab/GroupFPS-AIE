@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 5f;
     public float jumpHeight = 2f;
+    public float sprintSpeed = 10f;
+    private float currentSpeed;
 
     public float fallGravityMultiplier = 2f;
     public float mouseSensitivity = 2.0f;
