@@ -25,14 +25,14 @@ public class PlayerMovement : MonoBehaviour
 
     private float rotateCameraPitch;
 
-    private Camera firstPersonCam;
+    private CameraMovement firstPersonCam;
     private CharacterController characterController;
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        firstPersonCam = GetComponentInChildren<Camera>();
-        //Cursor.lockState = CursorLockMode.Locked;
+        firstPersonCam = GetComponentInChildren<CameraMovement>();
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -45,12 +45,22 @@ public class PlayerMovement : MonoBehaviour
         JumpAndGravity();
         CameraMovement();
 
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            currentSpeed = sprintSpeed;
+        }
+        else
+        {
+            currentSpeed = movementSpeed;
+        }
+
     }
 
     void Movement()
     {
-        Vector3 direction = (transform.forward * forwardInputValue
-                            + transform.right * StrafeInputValue).normalized * movementSpeed * Time.deltaTime;
+        Vector3 direction = ((transform.forward * forwardInputValue
+                            + transform.right * StrafeInputValue).normalized * currentSpeed * Time.deltaTime);
 
         direction += Vector3.up * verticalVelocity * Time.deltaTime;
 
