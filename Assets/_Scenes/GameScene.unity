@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 587132127}
   - component: {fileID: 587132126}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Keeleys test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
